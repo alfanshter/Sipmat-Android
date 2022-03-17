@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">sipmat</string>
+    <string name="title_activity_home_admin">HomeAdminActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_arsip">Arsip</string>
+    <string name="title_pelaksana">Pelaksana</string>
+    <string name="title_pm">PM</string>
+</resources>
