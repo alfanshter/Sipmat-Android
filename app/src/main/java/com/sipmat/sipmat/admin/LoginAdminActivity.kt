@@ -7,6 +7,7 @@ import android.view.View
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.messaging.FirebaseMessaging
+import com.sipmat.sipmat.MainActivity
 import com.sipmat.sipmat.R
 import com.sipmat.sipmat.model.LoginResponse
 import com.sipmat.sipmat.session.SessionManager
@@ -86,7 +87,15 @@ class LoginAdminActivity : AppCompatActivity(),AnkoLogger {
                                     toast("login berhasil")
                                     startActivity<HomeAdminActivity>()
                                     finish()
-                                } else {
+                                }else if (response.body()!!.status ==2){
+                                    sessionManager.setToken(response.body()!!.data!!.tokenId!!)
+                                    sessionManager.setLogin(true)
+                                    loading(false)
+                                    toast("login berhasil")
+                                    startActivity<MainActivity>()
+
+                                }
+                                else {
                                     loading(false)
                                     snackbar("Email atau password salah",view)
 
@@ -121,6 +130,9 @@ class LoginAdminActivity : AppCompatActivity(),AnkoLogger {
         super.onStart()
         if (sessionManager.getLoginadmin() == true){
             startActivity<HomeAdminActivity>()
+            finish()
+        }else if (sessionManager.getLogin() == true){
+            startActivity<MainActivity>()
             finish()
         }
     }

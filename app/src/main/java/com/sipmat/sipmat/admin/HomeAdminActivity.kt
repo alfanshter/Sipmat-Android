@@ -12,9 +12,12 @@ import com.sipmat.sipmat.R
 import com.sipmat.sipmat.admin.ui.ARSIP.ArsipFragment
 import com.sipmat.sipmat.admin.ui.PELAKSANA.PelaksanaFragment
 import com.sipmat.sipmat.admin.ui.PM.PMFragment
+import com.sipmat.sipmat.session.SessionManager
+import org.jetbrains.anko.startActivity
 
 class HomeAdminActivity : AppCompatActivity() {
 
+    lateinit var sessionManager: SessionManager
     private val onNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -42,6 +45,15 @@ class HomeAdminActivity : AppCompatActivity() {
 
                 }
 
+                R.id.navigation_logout -> {
+                    sessionManager.setLoginadmin(false)
+                    sessionManager.setLogin(false)
+                    sessionManager.setToken("")
+                    startActivity<LoginAdminActivity>()
+                    finish()
+
+                }
+
 
             }
 
@@ -51,7 +63,7 @@ class HomeAdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_admin)
-
+        sessionManager = SessionManager(this)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_viewhome)
 

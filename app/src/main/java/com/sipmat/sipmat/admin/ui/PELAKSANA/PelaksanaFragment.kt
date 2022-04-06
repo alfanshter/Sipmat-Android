@@ -48,6 +48,7 @@ class PelaksanaFragment : Fragment(), AnkoLogger {
 
             if (username.isNotEmpty() && password.isNotEmpty() && nama.isNotEmpty()) {
                 loading(true)
+                info { "dinda $nama $username $password" }
                 api.register(nama, username, password, 1)
                     .enqueue(object : Callback<RegisterResponse> {
                         override fun onResponse(

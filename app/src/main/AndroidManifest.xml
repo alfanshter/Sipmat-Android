@@ -3,7 +3,7 @@
     package="com.sipmat.sipmat">
 
     <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sipmat"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".aparpelaksana.AparPelaksanaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".apar.TambahScheduleActivity"
+            android:exported="false" />
         <activity
             android:name=".QRcodeActivity"
             android:exported="false" />

@@ -4,40 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="30dp"
     android:layout_height="match_parent"
-    tools:context=".apar.ScheduleAparActivity">
-
+    android:padding="30dp"
+    tools:context=".apar.TambahScheduleActivity">
 
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Schedule"
-        android:textColor="@color/black"
+        android:text="Shcedule APAR"
         android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tambah Schedule"
-        android:id="@+id/btntambah"
-        android:textAllCaps="false"
-        android:layout_marginTop="20dp"
-        app:cornerRadius="10dp"
-        android:backgroundTint="@color/black"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Data Schedule"
+        android:fontFamily="sans-serif-medium"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,23 +65,60 @@
         android:background="@drawable/imginput"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="20dp"
+        android:text="Tanggal Pengecekan"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType=""
+        android:id="@+id/txt_tanggalcek"
+        android:text="-"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:background="@drawable/imginput"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="20dp"
+        android:text="Pilih APAR"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType=""
+        android:id="@+id/spn_apar"
+        android:text="-"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:background="@drawable/imginput"
+        />
+
+
+
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cari"
-        android:id="@+id/btncari"
+        android:text="Tambah"
+        android:id="@+id/btntambah"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         app:cornerRadius="10dp"
-        android:backgroundTint="#4CAF50"/>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/rvscheduleapar"/>
-
-
+        android:backgroundTint="@color/black"/>
 
 </LinearLayout>

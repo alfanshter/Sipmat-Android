@@ -58,6 +58,31 @@ interface ApiService {
     @GET("apar")
     fun getapar(): Call<AparResponse>
 
+    @GET("apar")
+    fun getapar_pick(): Call<AparPickResponse>
+
+    //Schedule
+    @FormUrlEncoded
+    @POST("schedule_apar")
+    fun schedule_apar(
+        @Field("kode_apar") kode_apar : String,
+        @Field("tw") tw : String,
+        @Field("tahun") tahun : String,
+        @Field("tanggal_cek") tanggal_cek : String
+    ): Call<PostDataResponse>
+
+    @GET("getschedule")
+    fun getapar_pick(
+        @Query("tw") tw : String,
+        @Query("tahun") tahun : String
+    ): Call<ScheduleResponse>
+
+    @GET("gethasil")
+    fun getapar_hasil(
+        @Query("tw") tw : String,
+        @Query("tahun") tahun : String
+    ): Call<ScheduleResponse>
+
 
 }
 

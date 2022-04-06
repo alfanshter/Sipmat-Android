@@ -33,13 +33,11 @@ class UsersAdapter(
 
     inner class ViewHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         internal var id: TextView
-        internal var password: TextView
         internal var nama: TextView
 
 
         init {
             id = view.findViewById(R.id.txtid)
-            password = view.findViewById(R.id.txtpassword)
             nama = view.findViewById(R.id.txtnama)
 
         }

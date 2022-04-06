@@ -57,27 +57,45 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16dp" />
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:inputType=""
-            android:id="@+id/spntahun"
-            android:text="-"
+            android:id="@+id/edttahun"
             android:textSize="16dp"
+            android:inputType="number"
             android:textColor="@color/black"
             android:gravity="center"
             android:background="@drawable/imginput"
             />
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cari"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            app:cornerRadius="10dp"
-            android:backgroundTint="@color/black"/>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_gravity="center"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <com.google.android.material.button.MaterialButton
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Cari"
+               android:id="@+id/btncari"
+               android:layout_gravity="center"
+               android:layout_marginTop="5dp"
+               app:cornerRadius="10dp"
+               android:backgroundTint="@color/black"/>
+
+           <com.google.android.material.button.MaterialButton
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="20dp"
+               android:text="SYNCHHRONE"
+               android:visibility="gone"
+               android:layout_gravity="center"
+               android:layout_marginTop="5dp"
+               app:cornerRadius="10dp"
+               android:id="@+id/btnsinkron"
+               android:backgroundTint="@color/black"/>
+       </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -85,87 +103,96 @@
             android:layout_marginTop="20dp"
             android:id="@+id/rvhasilapar"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="20dp"
-            android:text="Jabatan"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <com.google.android.material.textfield.TextInputEditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:inputType=""
-            android:id="@+id/edtjabatan"
-            android:text="-"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:background="@drawable/imginput"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:id="@+id/lnttd"
             android:layout_marginTop="20dp"
-            android:text="TTD"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:text="Tanda tangan"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/green"
-            app:cornerRadius="10dp"
-            />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:text="Jabatan"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:inputType=""
+                android:id="@+id/edtjabatan"
+                android:text="-"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:background="@drawable/imginput"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:text="TTD"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanda tangan"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/green"
+                app:cornerRadius="10dp"
+                />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="20dp"
-            android:text="Nama"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:text="Nama"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:inputType=""
-            android:id="@+id/edtnama"
-            android:text="-"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:background="@drawable/imginput"
-            />
-
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SYNCHRONE"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/black"
-            app:cornerRadius="10dp"
-            android:layout_marginBottom="50dp"
-            />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType=""
+                android:id="@+id/edtnama"
+                android:text="-"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:background="@drawable/imginput"
+                />
 
 
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SYNCHRONE"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/black"
+                app:cornerRadius="10dp"
+                android:layout_marginBottom="50dp"
+                />
+
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
