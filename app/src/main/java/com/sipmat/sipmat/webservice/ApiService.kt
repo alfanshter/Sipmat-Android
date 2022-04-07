@@ -83,6 +83,11 @@ interface ApiService {
         @Query("tahun") tahun : String
     ): Call<ScheduleResponse>
 
+    @GET("getschedule_pelaksana")
+    fun getschedule_pelaksana(): Call<ScheduleAparPelaksanaResponse>
+
+    @GET("cekapar")
+    fun cekapar(@Query("kode")kode : String): Call<AparResponse>
 
 }
 

@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/drawable/imginput.xml" value="0.116" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/activity_apar.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/activity_apar_pelaksana.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/activity_cek_apar.xml" value="0.25" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/activity_hasil_apar.xml" value="0.16259057971014493" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/activity_home_admin.xml" value="0.16259057971014493" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/activity_item_apar.xml" value="0.25" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/fragment_profil.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/fragment_sinkron_hasil.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/list_apar.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/list_aparpelaksana.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/list_hasilapar.xml" value="0.33" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/list_scheduleapar.xml" value="0.25" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/layout/list_users.xml" value="0.16847826086956522" />

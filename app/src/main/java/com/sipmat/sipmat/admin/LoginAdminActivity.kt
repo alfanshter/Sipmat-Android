@@ -89,6 +89,7 @@ class LoginAdminActivity : AppCompatActivity(),AnkoLogger {
                                     finish()
                                 }else if (response.body()!!.status ==2){
                                     sessionManager.setToken(response.body()!!.data!!.tokenId!!)
+                                    sessionManager.setNama(response.body()!!.data!!.username!!)
                                     sessionManager.setLogin(true)
                                     loading(false)
                                     toast("login berhasil")

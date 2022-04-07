@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Sipmat"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".aparpelaksana.CekAparActivity"
+            android:exported="false" />
+        <activity
             android:name=".aparpelaksana.AparPelaksanaActivity"
             android:exported="false" />
         <activity

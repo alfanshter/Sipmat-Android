@@ -41,4 +41,15 @@ class SessionManager(private val context: Context?) {
     {
         return Pref?.getString(isToken,"")
     }
+
+    private val isnama = "isnama"
+    fun setNama(check: String){
+        editor?.putString(isnama,check)
+        editor?.commit()
+    }
+
+    fun getNama():String?
+    {
+        return Pref?.getString(isnama,"")
+    }
 }
