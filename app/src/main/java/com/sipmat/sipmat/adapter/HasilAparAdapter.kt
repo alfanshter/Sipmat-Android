@@ -65,8 +65,19 @@ class HasilAparAdapter(
             holder.status.text = "Status : Silahkan Approve"
         }else if (note.isStatus ==2){
             holder.status.text = "Status : Selesai"
+        }else if (note.isStatus ==0){
+            holder.status.text = "Status : belum di cek"
+        }
+        else if (note.isStatus ==3){
+            holder.status.text = "Status : direturn"
         }
         holder.jadwal.text = "Jadwal : ${note.tanggalCek}"
+
+        holder.itemView.setOnClickListener {
+            if (dialog!=null){
+                dialog!!.onClick(position,note)
+            }
+        }
     }
 
 }

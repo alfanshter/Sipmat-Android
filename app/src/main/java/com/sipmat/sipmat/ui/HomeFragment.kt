@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.sipmat.sipmat.R
 import com.sipmat.sipmat.aparpelaksana.AparPelaksanaActivity
+import com.sipmat.sipmat.apatpelaksana.CekApatActivity
 import com.sipmat.sipmat.databinding.FragmentHomeBinding
 import com.sipmat.sipmat.databinding.FragmentProfilBinding
 import com.sipmat.sipmat.session.SessionManager
@@ -29,6 +30,10 @@ class HomeFragment : Fragment() {
 
         binding.txtapar.setOnClickListener {
             startActivity<AparPelaksanaActivity>()
+        }
+
+        binding.txtapat.setOnClickListener {
+            startActivity<CekApatActivity>()
         }
         return  binding.root
     }

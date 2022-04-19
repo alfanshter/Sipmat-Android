@@ -1,18 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sipmat.sipmat">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sipmat"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity
+            android:name=".admin.apat.CekApatAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".apatpelaksana.QrCodeCekApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".apatpelaksana.DetailCekApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".apatpelaksana.CekApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apat.TambahScheduleApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apat.TambahApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apat.ApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apat.HasilApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apat.ScheduleApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apat.ItemApatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".aparpelaksana.CekAparKadaluarsaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.apar.CekAparAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".aparpelaksana.QrCoderCekAparActivity"
+            android:exported="false" />
         <activity
             android:name=".aparpelaksana.CekAparActivity"
             android:exported="false" />
@@ -20,25 +64,25 @@
             android:name=".aparpelaksana.AparPelaksanaActivity"
             android:exported="false" />
         <activity
-            android:name=".apar.TambahScheduleActivity"
+            android:name=".admin.apar.TambahScheduleActivity"
             android:exported="false" />
         <activity
             android:name=".QRcodeActivity"
             android:exported="false" />
         <activity
-            android:name=".apar.HasilAparActivity"
+            android:name=".admin.apar.HasilAparActivity"
             android:exported="false" />
         <activity
-            android:name=".apar.ScheduleAparActivity"
+            android:name=".admin.apar.ScheduleAparActivity"
             android:exported="false" />
         <activity
-            android:name=".apar.ItemAparActivity"
+            android:name=".admin.apar.ItemAparActivity"
             android:exported="false" />
         <activity
-            android:name=".apar.AparActivity"
+            android:name=".admin.apar.AparActivity"
             android:exported="false" />
         <activity
-            android:name=".apar.TambahAparActivity"
+            android:name=".admin.apar.TambahAparActivity"
             android:exported="false" />
         <activity
             android:name=".admin.HomeAdminActivity"
@@ -59,6 +103,16 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.sipmat.sipmat.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

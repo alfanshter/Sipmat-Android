@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="30dp"
     android:layout_height="match_parent"
-    tools:context=".apar.ScheduleAparActivity">
+    tools:context=".admin.apar.ScheduleAparActivity">
 
 
 

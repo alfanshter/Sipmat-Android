@@ -7,7 +7,7 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:layout_height="match_parent"
-    tools:context=".apar.HasilAparActivity">
+    tools:context=".admin.apar.HasilAparActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

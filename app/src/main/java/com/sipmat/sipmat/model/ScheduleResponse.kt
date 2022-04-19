@@ -10,5 +10,3 @@ data class ScheduleResponse(
 	@field:SerializedName("message")
 	val message: String? = null
 )
-
-

@@ -6,9 +6,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
 import com.sipmat.sipmat.R
 import com.sipmat.sipmat.adapter.ScheduleAparAdapter
+import com.sipmat.sipmat.adapter.apar.PagerAparPelaksana
 import com.sipmat.sipmat.adapter.pelaksana.AparPelaksanaAdapter
+import com.sipmat.sipmat.aparpelaksana.uiapar.CekAparFragment
+import com.sipmat.sipmat.aparpelaksana.uiapar.KadaluarsaAparFragment
 import com.sipmat.sipmat.databinding.ActivityAparPelaksanaBinding
 import com.sipmat.sipmat.model.ScheduleAparPelaksanaModel
 import com.sipmat.sipmat.model.ScheduleAparPelaksanaResponse
@@ -35,70 +41,34 @@ class AparPelaksanaActivity : AppCompatActivity(),AnkoLogger {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_apar_pelaksana)
         binding.lifecycleOwner = this
 
+        val fragmentAdapter = PagerAparPelaksana(supportFragmentManager)
+
+        binding.viewPesanan.adapter =fragmentAdapter
+        binding.tabPesanan.setupWithViewPager(binding.viewPesanan)
+
+        setUpViewPager(binding.viewPesanan)
+        binding.tabPesanan.setupWithViewPager(binding.viewPesanan)
+        binding.tabPesanan.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {}
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
+
 
     }
+
+    private fun setUpViewPager(viewPager: ViewPager) {
+        val adapter = PagerAparPelaksana(supportFragmentManager)
+        adapter.addFragment(CekAparFragment(), "Apar")
+        adapter.addFragment(KadaluarsaAparFragment(), "Apar Kadaluarsa")
+        viewPager.adapter = adapter
+    }
+
+
+
 
     override fun onStart() {
         super.onStart()
-        getaparpelaksana()
-    }
-
-
-    fun getaparpelaksana(){
-        binding.rvaparpelaksana.layoutManager = LinearLayoutManager(this)
-        binding.rvaparpelaksana.setHasFixedSize(true)
-        (binding.rvaparpelaksana.layoutManager as LinearLayoutManager).orientation =
-            LinearLayoutManager.VERTICAL
-        api.getschedule_pelaksana()
-            .enqueue(object : Callback<ScheduleAparPelaksanaResponse> {
-                override fun onResponse(
-                    call: Call<ScheduleAparPelaksanaResponse>,
-                    response: Response<ScheduleAparPelaksanaResponse>
-                ) {
-                    try {
-                        if (response.isSuccessful) {
-                            val notesList = mutableListOf<ScheduleAparPelaksanaModel>()
-                            val data = response.body()
-                            for (hasil in data!!.data!!) {
-                                notesList.add(hasil)
-                                mAdapter = AparPelaksanaAdapter(notesList, this@AparPelaksanaActivity)
-                                binding.rvaparpelaksana.adapter = mAdapter
-                                mAdapter.setDialog(object : AparPelaksanaAdapter.Dialog{
-                                    override fun onClick(position: Int, note : ScheduleAparPelaksanaModel) {
-                                        val builder = AlertDialog.Builder(this@AparPelaksanaActivity)
-                                        builder.setMessage("Cek apar ? ")
-                                        builder.setPositiveButton("Cek APAR") { dialog, which ->
-                                            startActivity<CekAparActivity>()
-                                        }
-
-
-                                        builder.setNegativeButton("Cancel ?") { dialog, which ->
-
-                                        }
-
-                                        builder.show()
-
-                                    }
-
-                                })
-                                mAdapter.notifyDataSetChanged()
-                            }
-                        } else {
-                            toast("gagal mendapatkan response")
-                        }
-                    } catch (e: Exception) {
-                        info { "dinda ${e.message}" }
-                    }
-                }
-
-                override fun onFailure(call: Call<ScheduleAparPelaksanaResponse>, t: Throwable) {
-                    info { "dinda ${t.message}" }
-                }
-
-            })
-
-
-
     }
 
 }

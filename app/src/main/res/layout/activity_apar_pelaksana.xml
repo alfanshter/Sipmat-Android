@@ -7,28 +7,29 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        android:padding="20dp"
         tools:context=".aparpelaksana.AparPelaksanaActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Schedule"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_pesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorColor="#FFF"
+                app:tabIndicatorHeight="3dp"
+                app:tabTextColor="@color/white"
+                android:background="@color/black"
+                app:tabMode="fixed" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:id="@+id/rvaparpelaksana" />
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pesanan"
+                android:layout_below="@id/tab_pesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                />
 
-
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

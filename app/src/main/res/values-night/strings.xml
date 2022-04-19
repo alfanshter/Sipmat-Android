@@ -3,4 +3,10 @@
     <string name="title_arsip">Arsip</string>
     <string name="title_pelaksana">Pelaksana</string>
     <string name="title_pm">PM</string>
+    <string-array name="cekapar">
+        <item>Baik</item>
+        <item>Kurang baik</item>
+        <item>Rusak</item>
+        <item>Tidak ada</item>
+    </string-array>
 </resources>

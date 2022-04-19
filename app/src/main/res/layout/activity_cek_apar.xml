@@ -89,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Kode APAR : "
+                    android:id="@+id/txtkodeapar"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -97,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Jenis APAR : "
+                    android:id="@+id/txtjenisapar"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -104,6 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:id="@+id/txtlokasi"
                     android:text="Lokasi Penempatan APAR : "
                     android:textColor="@color/black"
                     android:textSize="14dp" />
@@ -112,6 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:id="@+id/txtkadaluarsa"
                     android:text="Tgl Kadaluarsa : "
                     android:textColor="@color/black"
                     android:textSize="14dp" />
@@ -151,7 +155,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:inputType="number"
+                        android:id="@+id/edtkapasitas"
                         />
 
                 </LinearLayout>
@@ -175,6 +180,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
+                        android:id="@+id/spntabung"
+                        android:entries="@array/cekapar"
 
                         />
 
@@ -198,6 +205,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
+                        android:id="@+id/spnpin"
+                        android:entries="@array/cekapar"
 
                         />
 
@@ -221,7 +230,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnsegel"
                         />
 
                 </LinearLayout>
@@ -244,10 +254,12 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnhandle"
                         />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -267,10 +279,39 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnpressure"
                         />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Tuas: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Ketik Manual"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="14dp"
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spntuas"
+                        />
+
+                </LinearLayout>
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -290,7 +331,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnselang"
                         />
 
                 </LinearLayout>
@@ -313,7 +355,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnnoozle"
                         />
 
                 </LinearLayout>
@@ -336,7 +379,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnrambusegitiga"
                         />
 
                 </LinearLayout>
@@ -359,7 +403,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spngantungan"
                         />
 
                 </LinearLayout>
@@ -382,7 +427,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:entries="@array/cekapar"
+                        android:id="@+id/spnhousekeeping"
                         />
 
                 </LinearLayout>
@@ -405,11 +451,20 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-
+                        android:id="@+id/edtketerangan"
                         />
 
                 </LinearLayout>
             </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="submit"
+                android:id="@+id/btnsubmit"
+                android:layout_marginTop="20dp"
+                app:backgroundTint="@color/black"/>
 
         </LinearLayout>
 

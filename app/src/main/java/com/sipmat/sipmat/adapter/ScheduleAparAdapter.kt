@@ -63,10 +63,22 @@ class ScheduleAparAdapter(
         holder.gedung.text = "Gedung : ${note.lokasi}"
         if (note.isStatus ==0){
             holder.status.text = "Status : Belum di cek"
-        }else{
+        }else if (note.isStatus ==2){
             holder.status.text = "Status : Sudah di cek"
         }
+        else if (note.isStatus ==1){
+            holder.status.text = "Status : proses pengecekan"
+        }
+        else{
+            holder.status.text = "Status : di return "
+        }
         holder.jadwal.text = "Jadwal : ${note.tanggalCek}"
+
+        holder.itemView.setOnClickListener {
+            if (dialog!=null){
+                dialog!!.onClick(position,note)
+            }
+        }
     }
 
 }

@@ -64,8 +64,11 @@ class AparPelaksanaAdapter(
         holder.gedung.text = "Gedung : ${note.lokasi}"
         if (note.isStatus ==0){
             holder.status.text = "Status : Belum di cek"
-        }else{
+        }else if (note.isStatus ==2){
             holder.status.text = "Status : Sudah di cek"
+        }
+        else{
+            holder.status.text = "Status : di return "
         }
         holder.jadwal.text = "Jadwal : ${note.tanggalCek}"
 

@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.sipmat.sipmat.apar.AparActivity
+import com.sipmat.sipmat.admin.apar.AparActivity
 import com.sipmat.sipmat.R
+import com.sipmat.sipmat.admin.apat.ApatActivity
 import com.sipmat.sipmat.databinding.FragmentPmBinding
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -27,6 +28,9 @@ class PMFragment : Fragment() {
 
         binding.txtapar.setOnClickListener {
             startActivity<AparActivity>()
+        }
+        binding.txtapat.setOnClickListener {
+            startActivity<ApatActivity>()
         }
         //copy3
         return  binding.root
