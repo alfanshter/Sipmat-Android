@@ -1,18 +1,15 @@
-package com.sipmat.sipmat.aparpelaksana
+package com.sipmat.sipmat.pelaksana.aparpelaksana
 
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.google.gson.Gson
-import com.sipmat.sipmat.QRcodeActivity
-import com.sipmat.sipmat.QRcodeActivity.Companion.hasilqrcode
 import com.sipmat.sipmat.R
-import com.sipmat.sipmat.aparpelaksana.QrCoderCekAparActivity.Companion.jenis
-import com.sipmat.sipmat.aparpelaksana.QrCoderCekAparActivity.Companion.kadaluarsa
-import com.sipmat.sipmat.aparpelaksana.QrCoderCekAparActivity.Companion.kodeapar
-import com.sipmat.sipmat.aparpelaksana.QrCoderCekAparActivity.Companion.lokasi
-import com.sipmat.sipmat.databinding.ActivityAparPelaksanaBinding
+import com.sipmat.sipmat.pelaksana.aparpelaksana.QrCoderCekAparActivity.Companion.jenis
+import com.sipmat.sipmat.pelaksana.aparpelaksana.QrCoderCekAparActivity.Companion.kadaluarsa
+import com.sipmat.sipmat.pelaksana.aparpelaksana.QrCoderCekAparActivity.Companion.kodeapar
+import com.sipmat.sipmat.pelaksana.aparpelaksana.QrCoderCekAparActivity.Companion.lokasi
 import com.sipmat.sipmat.databinding.ActivityCekAparBinding
 import com.sipmat.sipmat.model.PostDataResponse
 import com.sipmat.sipmat.model.ScheduleAparPelaksanaModel

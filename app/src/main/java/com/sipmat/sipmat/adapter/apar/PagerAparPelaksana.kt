@@ -3,8 +3,8 @@ package com.sipmat.sipmat.adapter.apar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.sipmat.sipmat.aparpelaksana.uiapar.CekAparFragment
-import com.sipmat.sipmat.aparpelaksana.uiapar.KadaluarsaAparFragment
+import com.sipmat.sipmat.pelaksana.aparpelaksana.uiapar.CekAparFragment
+import com.sipmat.sipmat.pelaksana.aparpelaksana.uiapar.KadaluarsaAparFragment
 
 class PagerAparPelaksana(fm: FragmentManager): FragmentPagerAdapter(fm) {
 

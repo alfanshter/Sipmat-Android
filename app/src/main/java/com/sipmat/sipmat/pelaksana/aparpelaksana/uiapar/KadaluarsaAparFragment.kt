@@ -1,4 +1,4 @@
-package com.sipmat.sipmat.aparpelaksana.uiapar
+package com.sipmat.sipmat.pelaksana.aparpelaksana.uiapar
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -12,15 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.sipmat.sipmat.R
 import com.sipmat.sipmat.adapter.apar.AparKadaluarsaAdapter
-import com.sipmat.sipmat.adapter.pelaksana.AparPelaksanaAdapter
-import com.sipmat.sipmat.aparpelaksana.CekAparActivity
-import com.sipmat.sipmat.aparpelaksana.CekAparKadaluarsaActivity
-import com.sipmat.sipmat.databinding.FragmentCekAparBinding
+import com.sipmat.sipmat.pelaksana.aparpelaksana.CekAparKadaluarsaActivity
 import com.sipmat.sipmat.databinding.FragmentKadaluarsaAparBinding
 import com.sipmat.sipmat.model.AparModel
 import com.sipmat.sipmat.model.AparResponse
-import com.sipmat.sipmat.model.ScheduleAparPelaksanaModel
-import com.sipmat.sipmat.model.ScheduleAparPelaksanaResponse
 import com.sipmat.sipmat.webservice.ApiClient
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info

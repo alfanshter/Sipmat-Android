@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".pelaksana.aparpelaksana.CekAparActivity">
+        tools:context=".admin.hydrant.schedule.CekHydrantAdminActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Cek Apar"
+                android:text="Hasil Hydrant"
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:textStyle="bold" />
@@ -66,30 +66,14 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:text="Scan Barcode : "
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnscan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:text="Scan Apar"
-                    app:cornerRadius="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Kode APAR : "
-                    android:id="@+id/txtkodeapar"
+                    android:text="Kode hydrant : "
+                    android:id="@+id/txtkodehydrant"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -97,8 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Jenis APAR : "
-                    android:id="@+id/txtjenisapar"
+                    android:text="No Box hydrant : "
+                    android:id="@+id/txtno"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -107,16 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:id="@+id/txtlokasi"
-                    android:text="Lokasi Penempatan APAR : "
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/txtkadaluarsa"
-                    android:text="Tgl Kadaluarsa : "
+                    android:text="Lokasi Penempatan hydrant : "
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -141,23 +116,22 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Flashing : "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Kapasitas (kg) : "
+                        android:id="@+id/txtflashing"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:inputType="number"
-                        android:id="@+id/edtkapasitas"
-                        />
 
                 </LinearLayout>
 
@@ -166,24 +140,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Main Valve: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Tabung: "
+                        android:id="@+id/txtmainvalve"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:id="@+id/spntabung"
-                        android:entries="@array/cekapar"
-
-                        />
 
                 </LinearLayout>
                 <LinearLayout
@@ -191,24 +164,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Discharge Valve: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Pin: "
+                        android:id="@+id/txtdischarge"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:id="@+id/spnpin"
-                        android:entries="@array/cekapar"
-
-                        />
 
                 </LinearLayout>
                 <LinearLayout
@@ -216,23 +189,22 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Kondisi Box: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Segel: "
+                        android:id="@+id/txtkondisibox"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnsegel"
-                        />
 
                 </LinearLayout>
                 <LinearLayout
@@ -240,23 +212,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Kunci Box: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Handle: "
+                        android:id="@+id/txtkuncibox"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnhandle"
-                        />
 
                 </LinearLayout>
 
@@ -265,23 +237,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Kunci F: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Pressure Indikator: "
+                        android:id="@+id/txtkuncif"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnpressure"
-                        />
 
                 </LinearLayout>
 
@@ -290,146 +262,73 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="Tuas: "
-                        android:textColor="@color/black"
-                        android:textSize="14dp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spntuas"
-                        />
-
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
                         android:text="Selang: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnselang"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
+                        android:id="@+id/txtselang"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
                         android:text="Nozzle: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnnoozle"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Rambu Segitiga: "
+                        android:id="@+id/txtnozzle"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnrambusegitiga"
-                        />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="Gantungan: "
+                        android:text="House Keeping: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spngantungan"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="HouseKeeping: "
+                        android:id="@+id/txthousekeeping"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnhousekeeping"
-                        />
 
                 </LinearLayout>
                 <LinearLayout
@@ -437,34 +336,53 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
                         android:text="Keterangan: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:id="@+id/edtketerangan"
-                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:id="@+id/txtketerangan"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
 
                 </LinearLayout>
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="submit"
-                android:id="@+id/btnsubmit"
-                android:layout_marginTop="20dp"
-                app:backgroundTint="@color/black"/>
+                android:gravity="center"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Aprrove"
+                    android:textColor="@color/black"
+                    android:id="@+id/btn_approve"
+                    android:layout_marginTop="20dp"
+                    app:backgroundTint="@color/green"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Return"
+                    android:visibility="gone"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/btn_return"
+                    android:layout_marginTop="20dp"
+                    app:backgroundTint="@color/black"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

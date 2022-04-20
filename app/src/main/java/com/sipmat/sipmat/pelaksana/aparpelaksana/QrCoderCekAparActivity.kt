@@ -1,4 +1,4 @@
-package com.sipmat.sipmat.apatpelaksana
+package com.sipmat.sipmat.pelaksana.aparpelaksana
 
 import android.app.ProgressDialog
 import android.content.pm.PackageManager
@@ -14,8 +14,8 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.sipmat.sipmat.R
-import com.sipmat.sipmat.databinding.ActivityQrCodeCekApatBinding
-import com.sipmat.sipmat.model.apat.ApatModel
+import com.sipmat.sipmat.databinding.ActivityQrCoderCekAparBinding
+import com.sipmat.sipmat.model.apar.CekAparModel
 import com.sipmat.sipmat.webservice.ApiClient
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -24,15 +24,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class QrCodeCekApatActivity : AppCompatActivity(), AnkoLogger {
+class QrCoderCekAparActivity : AppCompatActivity(),AnkoLogger {
     private lateinit var codeScanner: CodeScanner
-    lateinit var binding : ActivityQrCodeCekApatBinding
+    lateinit var binding : ActivityQrCoderCekAparBinding
 
     var api = ApiClient.instance()
     lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_qr_code_cek_apat)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_qr_coder_cek_apar)
         binding.lifecycleOwner  =this
         progressDialog = ProgressDialog(this)
 
@@ -56,18 +56,35 @@ class QrCodeCekApatActivity : AppCompatActivity(), AnkoLogger {
                 runOnUiThread {
                     loading(true)
                     hasilqrcode = it.text
-                    if (DetailCekApatActivity.cekapat!!.kodeApat == hasilqrcode){
-                        no_bak = DetailCekApatActivity.cekapat!!.apar!!.noBak
-                        lokasi = DetailCekApatActivity.cekapat!!.apar!!.lokasi
-                        kodeapat = DetailCekApatActivity.cekapat!!.apar!!.kode
-                        finish()
+                    api.cekapar(hasilqrcode!!).enqueue(object :Callback<CekAparModel>{
+                        override fun onResponse(
+                            call: Call<CekAparModel>,
+                            response: Response<CekAparModel>
+                        ) {
+                            if (response.isSuccessful){
+                                if (CekAparActivity.cekapar!!.kodeApar == response.body()!!.data!!.kode){
+                                    jenis = response.body()!!.data!!.jenis
+                                    lokasi = response.body()!!.data!!.lokasi
+                                    kadaluarsa = response.body()!!.data!!.tglKadaluarsa
+                                    kodeapar = response.body()!!.data!!.kode
+                                    finish()
+                                }else{
+                                    toast("kode tidak sama")
+                                    finish()
+                                }
+                            }else{
+                                toast("Kesalahan response")
+                                finish()
+                            }
+                        }
 
-                    }else{
-                        toast("kode tidak sama")
-                        finish()
+                        override fun onFailure(call: Call<CekAparModel>, t: Throwable) {
+                            loading(true)
+                            toast("Kesalhan jaringan silahkan scan ulang")
+                            finish()
+                        }
 
-                    }
-
+                    })
                 }
             }
 
@@ -141,9 +158,10 @@ class QrCodeCekApatActivity : AppCompatActivity(), AnkoLogger {
     companion object {
         private const val CAMERA_REQ = 101
         var hasilqrcode : String? = null
-        var no_bak : String? = null
-        var kodeapat : String? = null
+        var jenis : String? = null
+        var kodeapar : String? = null
         var lokasi : String? = null
+        var kadaluarsa : String? = null
 
     }
 }

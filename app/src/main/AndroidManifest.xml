@@ -19,16 +19,46 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".admin.hydrant.schedule.CekHydrantAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.hydrant.hasil.HasilHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.hydrantpelaksana.QrCodeCekHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.hydrantpelaksana.DetailCekHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.hydrantpelaksana.CekHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.hydrant.schedule.TambahScheduleHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.hydrant.schedule.ScheduleHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.hydrant.item.TambahHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.hydrant.item.MenuHydrantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.hydrant.item.ItemHydrantActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.apat.CekApatAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".apatpelaksana.QrCodeCekApatActivity"
+            android:name=".pelaksana.apatpelaksana.QrCodeCekApatActivity"
             android:exported="false" />
         <activity
-            android:name=".apatpelaksana.DetailCekApatActivity"
+            android:name=".pelaksana.apatpelaksana.DetailCekApatActivity"
             android:exported="false" />
         <activity
-            android:name=".apatpelaksana.CekApatActivity"
+            android:name=".pelaksana.apatpelaksana.CekApatActivity"
             android:exported="false" />
         <activity
             android:name=".admin.apat.TambahScheduleApatActivity"
@@ -49,19 +79,19 @@
             android:name=".admin.apat.ItemApatActivity"
             android:exported="false" />
         <activity
-            android:name=".aparpelaksana.CekAparKadaluarsaActivity"
+            android:name=".pelaksana.aparpelaksana.CekAparKadaluarsaActivity"
             android:exported="false" />
         <activity
             android:name=".admin.apar.CekAparAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".aparpelaksana.QrCoderCekAparActivity"
+            android:name=".pelaksana.aparpelaksana.QrCoderCekAparActivity"
             android:exported="false" />
         <activity
-            android:name=".aparpelaksana.CekAparActivity"
+            android:name=".pelaksana.aparpelaksana.CekAparActivity"
             android:exported="false" />
         <activity
-            android:name=".aparpelaksana.AparPelaksanaActivity"
+            android:name=".pelaksana.aparpelaksana.AparPelaksanaActivity"
             android:exported="false" />
         <activity
             android:name=".admin.apar.TambahScheduleActivity"

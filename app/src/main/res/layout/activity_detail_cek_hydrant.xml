@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".pelaksana.aparpelaksana.CekAparActivity">
+        tools:context=".pelaksana.hydrantpelaksana.DetailCekHydrantActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Cek Apar"
+                android:text="Cek Hydrant"
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:textStyle="bold" />
@@ -81,15 +81,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:text="Scan Apar"
+                    android:text="Scan Hydrant"
                     app:cornerRadius="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Kode APAR : "
-                    android:id="@+id/txtkodeapar"
+                    android:text="Code : "
+                    android:id="@+id/txtkodehydrant"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -97,8 +97,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Jenis APAR : "
-                    android:id="@+id/txtjenisapar"
+                    android:text="No Box Hydrant : "
+                    android:id="@+id/txtno"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -107,16 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:id="@+id/txtlokasi"
-                    android:text="Lokasi Penempatan APAR : "
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/txtkadaluarsa"
-                    android:text="Tgl Kadaluarsa : "
+                    android:text="Lokasi Penempatan Hydrant : "
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
@@ -136,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -145,22 +137,20 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Kapasitas (kg) : "
+                        android:text="Flashing : "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-                        android:inputType="number"
-                        android:id="@+id/edtkapasitas"
+                        android:id="@+id/spnflashing"
+                        android:entries="@array/yesno"
                         />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -170,7 +160,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Tabung: "
+                        android:text="Main Valve: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -180,8 +170,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-                        android:id="@+id/spntabung"
-                        android:entries="@array/cekapar"
+                        android:id="@+id/spnmainvalce"
+                        android:entries="@array/openclose"
 
                         />
 
@@ -195,7 +185,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Pin: "
+                        android:text="Discharge valve: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -205,9 +195,8 @@
                         android:hint="Ketik Manual"
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
-                        android:id="@+id/spnpin"
-                        android:entries="@array/cekapar"
-
+                        android:entries="@array/openclose"
+                        android:id="@+id/spndischarge"
                         />
 
                 </LinearLayout>
@@ -220,31 +209,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Segel: "
-                        android:textColor="@color/black"
-                        android:textSize="14dp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnsegel"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="Handle: "
+                        android:text="Kondisi Box: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -255,7 +220,7 @@
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
                         android:entries="@array/cekapar"
-                        android:id="@+id/spnhandle"
+                        android:id="@+id/spnkondisi_box"
                         />
 
                 </LinearLayout>
@@ -269,7 +234,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Pressure Indikator: "
+                        android:text="Kunci Box: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -280,7 +245,7 @@
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
                         android:entries="@array/cekapar"
-                        android:id="@+id/spnpressure"
+                        android:id="@+id/spnkunci_box"
                         />
 
                 </LinearLayout>
@@ -294,7 +259,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Tuas: "
+                        android:text="Kunci F: "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -305,12 +270,10 @@
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
                         android:entries="@array/cekapar"
-                        android:id="@+id/spntuas"
+                        android:id="@+id/spnkuncif"
                         />
 
                 </LinearLayout>
-
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -336,6 +299,7 @@
                         />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -345,7 +309,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Nozzle: "
+                        android:text="Nozzle : "
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -356,58 +320,13 @@
                         android:layout_marginLeft="10dp"
                         android:textSize="14dp"
                         android:entries="@array/cekapar"
-                        android:id="@+id/spnnoozle"
+                        android:id="@+id/spnnozzle"
                         />
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="Rambu Segitiga: "
-                        android:textColor="@color/black"
-                        android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spnrambusegitiga"
-                        />
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="Gantungan: "
-                        android:textColor="@color/black"
-                        android:textSize="14dp" />
 
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Ketik Manual"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="14dp"
-                        android:entries="@array/cekapar"
-                        android:id="@+id/spngantungan"
-                        />
-
-                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -432,6 +351,9 @@
                         />
 
                 </LinearLayout>
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

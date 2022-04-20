@@ -1,4 +1,4 @@
-package com.sipmat.sipmat.apatpelaksana
+package com.sipmat.sipmat.pelaksana.hydrantpelaksana
 
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -6,14 +6,13 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.google.gson.Gson
 import com.sipmat.sipmat.R
-import com.sipmat.sipmat.aparpelaksana.CekAparActivity
-import com.sipmat.sipmat.aparpelaksana.QrCoderCekAparActivity
-import com.sipmat.sipmat.databinding.ActivityCekAparBinding
 import com.sipmat.sipmat.databinding.ActivityDetailCekApatBinding
+import com.sipmat.sipmat.databinding.ActivityDetailCekHydrantBinding
 import com.sipmat.sipmat.model.PostDataResponse
-import com.sipmat.sipmat.model.ScheduleAparPelaksanaModel
-import com.sipmat.sipmat.model.apat.ScheduleApatPelaksanaModel
+import com.sipmat.sipmat.model.hydrant.ScheduleHydrantPelaksanaModel
 import com.sipmat.sipmat.model.postdata.UpdateScheduleApat
+import com.sipmat.sipmat.model.postdata.UpdateScheduleHydrant
+import com.sipmat.sipmat.pelaksana.apatpelaksana.QrCodeCekApatActivity
 import com.sipmat.sipmat.session.SessionManager
 import com.sipmat.sipmat.webservice.ApiClient
 import org.jetbrains.anko.AnkoLogger
@@ -26,14 +25,14 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DetailCekApatActivity : AppCompatActivity(),AnkoLogger {
-    lateinit var binding: ActivityDetailCekApatBinding
+class DetailCekHydrantActivity : AppCompatActivity(),AnkoLogger {
+    lateinit var binding: ActivityDetailCekHydrantBinding
     var api = ApiClient.instance()
     lateinit var sessionManager: SessionManager
     lateinit var progressDialog: ProgressDialog
 
     companion object {
-        var cekapat: ScheduleApatPelaksanaModel? = null
+        var cekhydrant: ScheduleHydrantPelaksanaModel? = null
 
     }
 
@@ -41,12 +40,12 @@ class DetailCekApatActivity : AppCompatActivity(),AnkoLogger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_cek_apat)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_cek_hydrant)
         binding.lifecycleOwner = this
 
         val gson = Gson()
-        cekapat =
-            gson.fromJson(intent.getStringExtra("cekapat"), ScheduleApatPelaksanaModel::class.java)
+        cekhydrant =
+            gson.fromJson(intent.getStringExtra("cekhydrant"), ScheduleHydrantPelaksanaModel::class.java)
 
         val sdf = SimpleDateFormat("yyyy-M-dd")
         currentDate = sdf.format(Date())
@@ -60,37 +59,43 @@ class DetailCekApatActivity : AppCompatActivity(),AnkoLogger {
 
 
         binding.btnscan.setOnClickListener {
-            startActivity<QrCodeCekApatActivity>()
+            startActivity<QrCodeCekHydrantActivity>()
         }
 
         binding.btnsubmit.setOnClickListener {
             val keterangan = binding.edtketerangan.text.toString().trim()
-            if (QrCodeCekApatActivity.kodeapat != null && QrCodeCekApatActivity.no_bak != null && QrCodeCekApatActivity.lokasi != null) {
+            if (QrCodeCekHydrantActivity.kodehydrant != null && QrCodeCekHydrantActivity.no != null && QrCodeCekHydrantActivity.lokasi != null) {
                 loading(true)
-                val spnbak = binding.spnbak.selectedItem
-                val spnember = binding.spnember.selectedItem
-                val spngantungan = binding.spngantungan.selectedItem
-                val spnkarung = binding.spnkarung.selectedItem
-                val spnpasir = binding.spnpasir.selectedItem
-                val spnsekop = binding.spnsekop.selectedItem
+                val spnflashing = binding.spnflashing.selectedItem
+                val spnmainvalve = binding.spnmainvalce.selectedItem
+                val spndischarge = binding.spndischarge.selectedItem
+                val spnkondisibox = binding.spnkondisiBox.selectedItem
+                val spnkuncibox = binding.spnkunciBox.selectedItem
+                val spnkuncif = binding.spnkuncif.selectedItem
+                val spnselang = binding.spnselang.selectedItem
+                val spnnozzle = binding.spnnozzle.selectedItem
+                val spnhousekeeping = binding.spnhousekeeping.selectedItem
 
-                val updatescheduleapat = UpdateScheduleApat(
+                val updateschedulehydrant = UpdateScheduleHydrant(
+                    spnnozzle.toString(),
                     keterangan,
-                    cekapat!!.tw,
-                    cekapat!!.tahun,
-                    spnember.toString(),
-                    spngantungan.toString(),
-                    sessionManager.getNama(),
-                    cekapat!!.tanggalCek,
-                    spnbak!!.toString(),
+                    cekhydrant!!.tw,
+                    spnkuncibox.toString(),
+                    cekhydrant!!.tahun,
+                    sessionManager.getNama().toString(),
+                    cekhydrant!!.tanggalCek,
+                    spnmainvalve.toString(),
+                    spnkuncif.toString(),
                     1,
-                    spnkarung.toString(),
-                    spnpasir.toString(),
-                    cekapat!!.id,
-                    spnsekop.toString()
+                    spnhousekeeping.toString(),
+                    spndischarge.toString(),
+                    spnkondisibox.toString(),
+                    cekhydrant!!.id,
+                    spnflashing.toString(),
+                    spnselang.toString()
                 )
 
-                api.update_schedule_apat(updatescheduleapat).enqueue(object :
+                api.update_schedule_hydrant(updateschedulehydrant).enqueue(object :
                     Callback<PostDataResponse> {
                     override fun onResponse(
                         call: Call<PostDataResponse>,
@@ -128,23 +133,22 @@ class DetailCekApatActivity : AppCompatActivity(),AnkoLogger {
 
     override fun onStart() {
         super.onStart()
-        //CEK APAR
-        if (QrCodeCekApatActivity.kodeapat != null && QrCodeCekApatActivity.no_bak != null && QrCodeCekApatActivity.lokasi != null ) {
-            binding.txtkodeApat.text = "Kode APAT : ${QrCodeCekApatActivity.kodeapat.toString()}"
-            binding.txtnobak.text = "No Bak APAT : ${QrCodeCekApatActivity.no_bak.toString()}"
-            binding.txtlokasi.text = "Lokasi Penempatan APAT : ${QrCodeCekApatActivity.lokasi.toString()}"
+        //CEK Hydrant
+        if (QrCodeCekHydrantActivity.kodehydrant != null && QrCodeCekHydrantActivity.no != null && QrCodeCekHydrantActivity.lokasi != null ) {
+            binding.txtkodehydrant.text = "Kode hydrant : ${QrCodeCekHydrantActivity.kodehydrant.toString()}"
+            binding.txtno.text = "No Box hydrant : ${QrCodeCekHydrantActivity.no.toString()}"
+            binding.txtlokasi.text = "Lokasi Penempatan hydrant : ${QrCodeCekHydrantActivity.lokasi.toString()}"
         }
 
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
-        cekapat = null
-        QrCodeCekApatActivity.kodeapat = null
-        QrCodeCekApatActivity.no_bak = null
-        QrCodeCekApatActivity.lokasi = null
+        cekhydrant = null
+        QrCodeCekHydrantActivity.kodehydrant = null
+        QrCodeCekHydrantActivity.no = null
+        QrCodeCekHydrantActivity.lokasi = null
     }
-
 
     fun loading(status: Boolean) {
         if (status) {

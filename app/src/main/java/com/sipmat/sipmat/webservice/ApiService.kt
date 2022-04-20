@@ -3,8 +3,10 @@ package com.sipmat.sipmat.webservice
 import com.sipmat.sipmat.model.*
 import com.sipmat.sipmat.model.apar.CekAparModel
 import com.sipmat.sipmat.model.apat.*
+import com.sipmat.sipmat.model.hydrant.*
 import com.sipmat.sipmat.model.postdata.PostScheduleApar
 import com.sipmat.sipmat.model.postdata.UpdateScheduleApat
+import com.sipmat.sipmat.model.postdata.UpdateScheduleHydrant
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -227,5 +229,95 @@ interface ApiService {
         @Part("nama") nama: RequestBody,
     ): Call<PostDataResponse>
 
+    //==========================Hydrant =======================
+    @GET("gethydrant")
+    fun itemhydrant(): Call<ItemHydrantResponse>
+
+    @GET("gethydrant")
+    fun gethydrant_pick(): Call<HydrantPickResponse>
+
+    //Post Hydrant
+    @FormUrlEncoded
+    @POST("hydrant")
+    fun hydrant(
+        @Field("kode") kode: String,
+        @Field("no_box") no_box: String,
+        @Field("lokasi") lokasi: String,
+    ): Call<PostDataResponse>
+    //Update Hydrant
+    @FormUrlEncoded
+    @POST("updatehydrant")
+    fun updatehydrant(
+        @Field("kode") kode: String,
+        @Field("no_box") no_box: String,
+        @Field("lokasi") lokasi: String,
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+    //delete
+    @FormUrlEncoded
+    @POST("deletehydrant")
+    fun deletehydrant(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+    //==========================End Hydrant =======================
+    //==========================Schedule Hydrant =======================
+    @GET("getschedule_hydrant")
+    fun getschedule_hydrant(
+        @Query("tw") tw: String,
+        @Query("tahun") tahun: String
+    ): Call<ScheduleHydrantResponse>
+
+    //Tambah Schedule
+    @FormUrlEncoded
+    @POST("schedule_hydrant")
+    fun schedule_hydrant(
+        @Field("kode_hydrant") kode_hydrant: String,
+        @Field("tw") tw: String,
+        @Field("tahun") tahun: String,
+        @Field("tanggal_cek") tanggal_cek: String
+    ): Call<PostDataResponse>
+
+    //Hapus Schedule
+    @FormUrlEncoded
+    @POST("hapus_schedule_hydrant")
+    fun hapus_schedule_hydrant(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    @GET("getschedule_pelaksana_hydrant")
+    fun getschedule_pelaksana_hydrant(): Call<ScheduleHydrantPelaksanaResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST("update_schedule_hydrant")
+    fun update_schedule_hydrant(@Body post: UpdateScheduleHydrant): Call<PostDataResponse>
+
+    @GET("gethasil_hydrant")
+    fun gethasil_hydrant(
+        @Query("tw") tw: String,
+        @Query("tahun") tahun: String
+    ): Call<HasilHydrantResponse>
+
+    @FormUrlEncoded
+    @POST("acc_hydrant")
+    fun acc_hydrant(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    @FormUrlEncoded
+    @POST("return_hydrant")
+    fun return_hydrant(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    @Multipart
+    @POST("hydrant_pdf")
+    fun hydrant_pdf(
+        @Part image: MultipartBody.Part?,
+        @Part("tw") tw: RequestBody,
+        @Part("tahun") tahun: RequestBody,
+        @Part("jabatan") jabatan: RequestBody,
+        @Part("nama") nama: RequestBody,
+    ): Call<PostDataResponse>
+    //==========================End Schedule Hydrant =======================
 }
 

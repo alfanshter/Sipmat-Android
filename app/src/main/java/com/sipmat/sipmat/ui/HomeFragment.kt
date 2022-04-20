@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.sipmat.sipmat.R
-import com.sipmat.sipmat.aparpelaksana.AparPelaksanaActivity
-import com.sipmat.sipmat.apatpelaksana.CekApatActivity
+import com.sipmat.sipmat.pelaksana.aparpelaksana.AparPelaksanaActivity
+import com.sipmat.sipmat.pelaksana.apatpelaksana.CekApatActivity
 import com.sipmat.sipmat.databinding.FragmentHomeBinding
-import com.sipmat.sipmat.databinding.FragmentProfilBinding
+import com.sipmat.sipmat.pelaksana.hydrantpelaksana.CekHydrantActivity
 import com.sipmat.sipmat.session.SessionManager
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -34,6 +34,10 @@ class HomeFragment : Fragment() {
 
         binding.txtapat.setOnClickListener {
             startActivity<CekApatActivity>()
+        }
+
+        binding.txthydrant.setOnClickListener {
+            startActivity<CekHydrantActivity>()
         }
         return  binding.root
     }

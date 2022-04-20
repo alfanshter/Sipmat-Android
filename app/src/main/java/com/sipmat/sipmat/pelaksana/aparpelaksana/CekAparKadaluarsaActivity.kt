@@ -1,11 +1,10 @@
-package com.sipmat.sipmat.aparpelaksana
+package com.sipmat.sipmat.pelaksana.aparpelaksana
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.gson.Gson
 import com.sipmat.sipmat.R
 import com.sipmat.sipmat.model.AparModel
-import com.sipmat.sipmat.model.ScheduleAparPelaksanaModel
 
 class CekAparKadaluarsaActivity : AppCompatActivity() {
     var cekapar: AparModel? = null

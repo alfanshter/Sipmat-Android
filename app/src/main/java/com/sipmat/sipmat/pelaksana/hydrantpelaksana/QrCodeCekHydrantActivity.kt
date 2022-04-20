@@ -1,4 +1,4 @@
-package com.sipmat.sipmat.aparpelaksana
+package com.sipmat.sipmat.pelaksana.hydrantpelaksana
 
 import android.app.ProgressDialog
 import android.content.pm.PackageManager
@@ -14,26 +14,21 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.sipmat.sipmat.R
-import com.sipmat.sipmat.databinding.ActivityQrCoderCekAparBinding
-import com.sipmat.sipmat.model.AparResponse
-import com.sipmat.sipmat.model.apar.CekAparModel
+import com.sipmat.sipmat.databinding.ActivityQrCodeCekHydrantBinding
 import com.sipmat.sipmat.webservice.ApiClient
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class QrCoderCekAparActivity : AppCompatActivity(),AnkoLogger {
+class QrCodeCekHydrantActivity : AppCompatActivity(),AnkoLogger {
     private lateinit var codeScanner: CodeScanner
-    lateinit var binding : ActivityQrCoderCekAparBinding
+    lateinit var binding : ActivityQrCodeCekHydrantBinding
 
     var api = ApiClient.instance()
     lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_qr_coder_cek_apar)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_qr_code_cek_hydrant)
         binding.lifecycleOwner  =this
         progressDialog = ProgressDialog(this)
 
@@ -57,35 +52,18 @@ class QrCoderCekAparActivity : AppCompatActivity(),AnkoLogger {
                 runOnUiThread {
                     loading(true)
                     hasilqrcode = it.text
-                    api.cekapar(hasilqrcode!!).enqueue(object :Callback<CekAparModel>{
-                        override fun onResponse(
-                            call: Call<CekAparModel>,
-                            response: Response<CekAparModel>
-                        ) {
-                            if (response.isSuccessful){
-                                if (CekAparActivity.cekapar!!.kodeApar == response.body()!!.data!!.kode){
-                                    jenis = response.body()!!.data!!.jenis
-                                    lokasi = response.body()!!.data!!.lokasi
-                                    kadaluarsa = response.body()!!.data!!.tglKadaluarsa
-                                    kodeapar = response.body()!!.data!!.kode
-                                    finish()
-                                }else{
-                                    toast("kode tidak sama")
-                                    finish()
-                                }
-                            }else{
-                                toast("Kesalahan response")
-                                finish()
-                            }
-                        }
+                    if (DetailCekHydrantActivity.cekhydrant!!.kodeHydrant == hasilqrcode){
+                        no = DetailCekHydrantActivity.cekhydrant!!.hydrant!!.noBox
+                        lokasi = DetailCekHydrantActivity.cekhydrant!!.hydrant!!.lokasi
+                        kodehydrant = DetailCekHydrantActivity.cekhydrant!!.hydrant!!.kode
+                        finish()
 
-                        override fun onFailure(call: Call<CekAparModel>, t: Throwable) {
-                            loading(true)
-                            toast("Kesalhan jaringan silahkan scan ulang")
-                            finish()
-                        }
+                    }else{
+                        toast("kode tidak sama")
+                        finish()
 
-                    })
+                    }
+
                 }
             }
 
@@ -159,10 +137,9 @@ class QrCoderCekAparActivity : AppCompatActivity(),AnkoLogger {
     companion object {
         private const val CAMERA_REQ = 101
         var hasilqrcode : String? = null
-        var jenis : String? = null
-        var kodeapar : String? = null
+        var no : String? = null
+        var kodehydrant : String? = null
         var lokasi : String? = null
-        var kadaluarsa : String? = null
 
     }
 }

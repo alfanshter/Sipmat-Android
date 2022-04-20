@@ -17,6 +17,16 @@
         <item>Tidak ada</item>
     </string-array>
 
+    <string-array name="yesno">
+        <item>Ya</item>
+        <item>Tidak</item>
+    </string-array>
+
+    <string-array name="openclose">
+        <item>Open</item>
+        <item>Close</item>
+    </string-array>
+
     <string-array name="jenisapar">
         <item>CO2</item>
         <item>Dray powder</item>
