@@ -19,6 +19,36 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".pelaksana.kebisinganpelaksana.QrCodeCekKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.kebisinganpelaksana.DetailCekKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.kebisinganpelaksana.CekKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.schedule.CekKebisinganAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.schedule.TambahScheduleKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.schedule.ScheduleKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.hasil.HasilKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.item.TambahKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.item.ItemKebisinganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.kebisingan.MenuKebisinganActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.hydrant.schedule.CekHydrantAdminActivity"
             android:exported="false" />
         <activity

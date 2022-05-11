@@ -4,6 +4,7 @@ import com.sipmat.sipmat.model.*
 import com.sipmat.sipmat.model.apar.CekAparModel
 import com.sipmat.sipmat.model.apat.*
 import com.sipmat.sipmat.model.hydrant.*
+import com.sipmat.sipmat.model.kebisingan.*
 import com.sipmat.sipmat.model.postdata.PostScheduleApar
 import com.sipmat.sipmat.model.postdata.UpdateScheduleApat
 import com.sipmat.sipmat.model.postdata.UpdateScheduleHydrant
@@ -319,5 +320,83 @@ interface ApiService {
         @Part("nama") nama: RequestBody,
     ): Call<PostDataResponse>
     //==========================End Schedule Hydrant =======================
+
+    //==========================Kebisingan =======================
+    @GET("getkebisingan")
+    fun getkebisingan(): Call<KebisinganResponse>
+
+    @GET("getkebisingan")
+    fun getkebisingan_pick(): Call<KebisinganPickResponse>
+
+    //delete
+    @FormUrlEncoded
+    @POST("deletekebisingan")
+    fun deletekebisingan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    //Post
+    @FormUrlEncoded
+    @POST("kebisingan")
+    fun kebisingan(
+        @Field("kode") kode: String,
+        @Field("lokasi") lokasi: String,
+    ): Call<PostDataResponse>
+
+    //Update
+    @FormUrlEncoded
+    @POST("updatekebisingan")
+    fun updatekebisingan(
+        @Field("lokasi") lokasi: String,
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+    //==========================End Kebisingan =======================
+
+    //==========================Schedule Kebisingan =======================
+    @GET("getschedule_kebisingan")
+    fun getschedule_kebisingan(
+        @Query("tw") tw: String,
+        @Query("tahun") tahun: String
+    ): Call<ScheduleKebisinganResponse>
+
+
+    //Hapus Schedule
+    @FormUrlEncoded
+    @POST("hapus_schedule_kebisingan")
+    fun hapus_schedule_kebisingan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    //Tambah Schedule
+    @Headers("Content-Type: application/json")
+    @POST("schedule_kebisingan")
+    fun schedule_kebisingan(@Body post: PostScheduleKebisingan): Call<PostDataResponse>
+
+    @FormUrlEncoded
+    @POST("acc_kebisingan")
+    fun acc_kebisingan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    @FormUrlEncoded
+    @POST("return_kebisingan")
+    fun return_kebisingan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    @GET("getschedule_pelaksana_kebisingan")
+    fun getschedule_pelaksana_kebisingan(): Call<ScheduleKebisinganResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST("update_schedule_kebisingan")
+    fun update_schedule_kebisingan(@Body post: UpdateScheduleKebisingan): Call<PostDataResponse>
+
+    @GET("gethasil_kebisingan")
+    fun gethasil_kebisingan(
+        @Query("tw") tw: String,
+        @Query("tahun") tahun: String
+    ): Call<HasilKebisinganResponse>
+    //========================== ENDSchedule Kebisingan =======================
+
 }
 
