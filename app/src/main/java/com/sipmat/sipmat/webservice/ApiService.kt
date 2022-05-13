@@ -396,6 +396,16 @@ interface ApiService {
         @Query("tw") tw: String,
         @Query("tahun") tahun: String
     ): Call<HasilKebisinganResponse>
+
+    @Multipart
+    @POST("kebisingan_pdf")
+    fun kebisingan_pdf(
+        @Part image: MultipartBody.Part?,
+        @Part("tw") tw: RequestBody,
+        @Part("tahun") tahun: RequestBody,
+        @Part("jabatan") jabatan: RequestBody,
+        @Part("nama") nama: RequestBody,
+    ): Call<PostDataResponse>
     //========================== ENDSchedule Kebisingan =======================
 
 }

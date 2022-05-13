@@ -43,7 +43,10 @@ class DetailCekKebisinganActivity : AppCompatActivity(), AnkoLogger {
 
         val gson = Gson()
         cekkebisingan =
-            gson.fromJson(intent.getStringExtra("cekkebisingan"), ScheduleKebisinganModel::class.java)
+            gson.fromJson(
+                intent.getStringExtra("cekkebisingan"),
+                ScheduleKebisinganModel::class.java
+            )
 
         val sdf = SimpleDateFormat("yyyy-M-dd")
         currentDate = sdf.format(Date())
@@ -67,54 +70,58 @@ class DetailCekKebisinganActivity : AppCompatActivity(), AnkoLogger {
             val dbx3 = binding.txtdbx3.text.toString().trim()
             val dbrata2 = binding.txtdbrata2.text.toString().trim()
             val status = binding.txtstatus.text.toString().trim()
-            if (QrCodeCekKebisinganActivity.kodekebisingan != null && QrCodeCekKebisinganActivity.lokasi != null) {
-                loading(true)
+            if (keterangan.isNotEmpty() && dbx1.isNotEmpty()
+                && dbx2.isNotEmpty() && dbx3.isNotEmpty() && dbrata2.isNotEmpty() && status.isNotEmpty() && QrCodeCekKebisinganActivity . kodekebisingan != null && QrCodeCekKebisinganActivity.lokasi != null) {
+            loading(true)
 
-                val updateschedulekebisingan = UpdateScheduleKebisingan(keterangan,
-                    cekkebisingan!!.tw,
-                    cekkebisingan!!.tahun,
-                    dbrata2,
-                    sessionManager.getNama().toString(),
-                    cekkebisingan!!.tanggalCek,
-                    null,
-                    1,
-                    dbx2,
-                    dbx3,
-                    dbx1,
-                    cekkebisingan!!.id,
-                    status
-                    )
+            val updateschedulekebisingan = UpdateScheduleKebisingan(
+                keterangan,
+                cekkebisingan!!.tw,
+                cekkebisingan!!.tahun,
+                dbrata2,
+                sessionManager.getNama().toString(),
+                cekkebisingan!!.tanggalCek,
+                null,
+                1,
+                dbx2,
+                dbx3,
+                dbx1,
+                cekkebisingan!!.id,
+                status
+            )
 
-                api.update_schedule_kebisingan(updateschedulekebisingan).enqueue(object :
-                    Callback<PostDataResponse> {
-                    override fun onResponse(
-                        call: Call<PostDataResponse>,
-                        response: Response<PostDataResponse>
-                    ) {
-                        if (response.isSuccessful){
-                            loading(false)
-                            if (response.body()!!.sukses ==1){
-                                finish()
-                                toast("Tunggu approve admin")
-                            }else{
-                                finish()
-                                toast("silahkan coba lagi")
-                            }
-                        }else{
-                            loading(false)
-                            toast("Response gagal")
-                        }
-                    }
-
-                    override fun onFailure(call: Call<PostDataResponse>, t: Throwable) {
+            api.update_schedule_kebisingan(updateschedulekebisingan).enqueue(object :
+                Callback<PostDataResponse> {
+                override fun onResponse(
+                    call: Call<PostDataResponse>,
+                    response: Response<PostDataResponse>
+                ) {
+                    if (response.isSuccessful) {
                         loading(false)
-                        toast("Jaringan error")
-                        info { "dinda errror ${t.message}" }
+                        if (response.body()!!.sukses == 1) {
+                            finish()
+                            toast("Tunggu approve admin")
+                        } else {
+                            finish()
+                            toast("silahkan coba lagi")
+                        }
+                    } else {
+                        loading(false)
+                        toast("Response gagal")
                     }
+                }
 
-                })
+                override fun onFailure(call: Call<PostDataResponse>, t: Throwable) {
+                    loading(false)
+                    toast("Jaringan error")
+                    info { "dinda errror ${t.message}" }
+                }
+
+            })
 
 
+        }else{
+            toast("Jangan kosongi kolom")
             }
 
         }
@@ -124,9 +131,11 @@ class DetailCekKebisinganActivity : AppCompatActivity(), AnkoLogger {
     override fun onStart() {
         super.onStart()
         //CEK kebisingan
-        if (QrCodeCekKebisinganActivity.kodekebisingan != null && QrCodeCekKebisinganActivity.no != null && QrCodeCekKebisinganActivity.lokasi != null ) {
-            binding.txtkodekebisingan.text = "Kode kebisingan : ${QrCodeCekKebisinganActivity.kodekebisingan.toString()}"
-            binding.txtlokasi.text = "Lokasi Penempatan kebisingan : ${QrCodeCekKebisinganActivity.lokasi.toString()}"
+        if (QrCodeCekKebisinganActivity.kodekebisingan != null && QrCodeCekKebisinganActivity.lokasi != null) {
+            binding.txtkodekebisingan.text =
+                "Kode kebisingan : ${QrCodeCekKebisinganActivity.kodekebisingan.toString()}"
+            binding.txtlokasi.text =
+                "Lokasi Penempatan kebisingan : ${QrCodeCekKebisinganActivity.lokasi.toString()}"
         }
 
     }
@@ -135,7 +144,6 @@ class DetailCekKebisinganActivity : AppCompatActivity(), AnkoLogger {
         super.onBackPressed()
         cekkebisingan = null
         QrCodeCekKebisinganActivity.kodekebisingan = null
-        QrCodeCekKebisinganActivity.no = null
         QrCodeCekKebisinganActivity.lokasi = null
     }
 

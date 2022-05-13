@@ -55,6 +55,7 @@ class QrCodeCekKebisinganActivity : AppCompatActivity(), AnkoLogger {
                     if (DetailCekKebisinganActivity.cekkebisingan!!.kodeKebisingan == hasilqrcode){
                         lokasi = DetailCekKebisinganActivity.cekkebisingan!!.kebisingan!!.lokasi
                         kodekebisingan = DetailCekKebisinganActivity.cekkebisingan!!.kebisingan!!.kode
+
                         finish()
 
                     }else{
@@ -136,7 +137,6 @@ class QrCodeCekKebisinganActivity : AppCompatActivity(), AnkoLogger {
     companion object {
         private const val CAMERA_REQ = 101
         var hasilqrcode : String? = null
-        var no : String? = null
         var kodekebisingan : String? = null
         var lokasi : String? = null
 

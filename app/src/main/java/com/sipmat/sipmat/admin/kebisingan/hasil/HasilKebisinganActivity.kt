@@ -240,7 +240,6 @@ class HasilKebisinganActivity : AppCompatActivity(), AnkoLogger {
                             }
 
                         })
-
                     }else{
                         toast("jangan kosommgi kolom")
                         loading(false)

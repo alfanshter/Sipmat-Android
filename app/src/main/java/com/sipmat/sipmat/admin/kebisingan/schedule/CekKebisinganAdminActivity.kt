@@ -49,6 +49,15 @@ class CekKebisinganAdminActivity : AppCompatActivity(), AnkoLogger {
         binding.txltglPemeriksa.text = "Tgl Pemeriksa : ${cekkebisingan.tanggalCek.toString()}"
         binding.txtketerangan.text = cekkebisingan.keterangan
 
+        binding.txtkodekebisingan.text = "Kode kebisingan : ${cekkebisingan.kodeKebisingan}"
+        binding.txtlokasi.text = "Lokasi : ${cekkebisingan.kebisingan!!.lokasi}"
+        binding.txtdbx1.text = "${cekkebisingan.dbx1}"
+        binding.txtdbx2.text = "${cekkebisingan.dbx2}"
+        binding.txtdbx3.text = "${cekkebisingan.dbx3}"
+        binding.txtdbrata2.text = "${cekkebisingan.dbrata2}"
+        binding.txtstatus.text = "${cekkebisingan.isStatus}"
+        binding.txtketerangan.text = "${cekkebisingan.keterangan}"
+
         binding.btnReturn.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("kebisingan")
