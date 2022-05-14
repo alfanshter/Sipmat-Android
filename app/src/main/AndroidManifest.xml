@@ -19,6 +19,36 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".pelaksana.pencahayaanpelaksana.QrCodeCekPencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.pencahayaanpelaksana.DetailCekPencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pelaksana.pencahayaanpelaksana.CekPencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.hasil.HasilPencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.schedule.CekPencahayaanAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.schedule.TambahSchedulePencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.schedule.SchedulePencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.item.TambahPencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.item.ItemPencahayaanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pencahayaan.MenuPencahayaanActivity"
+            android:exported="false" />
+        <activity
             android:name=".pelaksana.kebisinganpelaksana.QrCodeCekKebisinganActivity"
             android:exported="false" />
         <activity

@@ -12,6 +12,7 @@ import com.sipmat.sipmat.pelaksana.apatpelaksana.CekApatActivity
 import com.sipmat.sipmat.databinding.FragmentHomeBinding
 import com.sipmat.sipmat.pelaksana.hydrantpelaksana.CekHydrantActivity
 import com.sipmat.sipmat.pelaksana.kebisinganpelaksana.CekKebisinganActivity
+import com.sipmat.sipmat.pelaksana.pencahayaanpelaksana.CekPencahayaanActivity
 import com.sipmat.sipmat.session.SessionManager
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -43,6 +44,10 @@ class HomeFragment : Fragment() {
 
         binding.txtkebisingan.setOnClickListener {
             startActivity<CekKebisinganActivity>()
+        }
+
+        binding.txtpencahayaan.setOnClickListener {
+            startActivity<CekPencahayaanActivity>()
         }
         return  binding.root
     }

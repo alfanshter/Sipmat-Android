@@ -5,6 +5,7 @@ import com.sipmat.sipmat.model.apar.CekAparModel
 import com.sipmat.sipmat.model.apat.*
 import com.sipmat.sipmat.model.hydrant.*
 import com.sipmat.sipmat.model.kebisingan.*
+import com.sipmat.sipmat.model.pencahayaan.*
 import com.sipmat.sipmat.model.postdata.PostScheduleApar
 import com.sipmat.sipmat.model.postdata.UpdateScheduleApat
 import com.sipmat.sipmat.model.postdata.UpdateScheduleHydrant
@@ -407,6 +408,96 @@ interface ApiService {
         @Part("nama") nama: RequestBody,
     ): Call<PostDataResponse>
     //========================== ENDSchedule Kebisingan =======================
+    //========================== Pencahayaan =======================
+    @GET("getpencahayaan")
+    fun getpencahayaan(): Call<PencahayaanResponse>
+
+    //dropwdown pencahayaan
+    @GET("getpencahayaan")
+    fun getpencahayaan_pick(): Call<PencahayaanPickResponse>
+
+    //delete
+    @FormUrlEncoded
+    @POST("deletepencahayaan")
+    fun deletepencahayaan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    //Post
+    @FormUrlEncoded
+    @POST("pencahayaan")
+    fun pencahayaan(
+        @Field("kode") kode: String,
+        @Field("lokasi") lokasi: String,
+    ): Call<PostDataResponse>
+
+    //Update
+    @FormUrlEncoded
+    @POST("updatepencahayaan")
+    fun updatepencahayaan(
+        @Field("lokasi") lokasi: String,
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+
+    //========================== ENDPencahayaan =======================
+
+    //==========================Schedule Pencahayaan =======================
+    @GET("getschedule_pencahayaan")
+    fun getschedule_pencahayaan(
+        @Query("tw") tw: String,
+        @Query("tahun") tahun: String
+    ): Call<SchedulePencahayaanResponse>
+
+    //Tambah Schedule
+    @Headers("Content-Type: application/json")
+    @POST("schedule_pencahayaan")
+    fun schedule_pencahayaan(@Body post: PostSchedulePencahayaanResponse): Call<PostDataResponse>
+
+    //Hapus Schedule
+    @FormUrlEncoded
+    @POST("hapus_schedule_pencahayaan")
+    fun hapus_schedule_pencahayaan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    //Return Pencahayaan
+    @FormUrlEncoded
+    @POST("return_pencahayaan")
+    fun return_pencahayaan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+    //ACC Pencahayaan
+    @FormUrlEncoded
+    @POST("acc_pencahayaan")
+    fun acc_pencahayaan(
+        @Field("id") id: Int
+    ): Call<PostDataResponse>
+
+    @GET("gethasil_pencahayaan")
+    fun gethasil_pencahayaan(
+        @Query("tw") tw: String,
+        @Query("tahun") tahun: String
+    ): Call<HasilPencahayaanResponse>
+
+    @Multipart
+    @POST("pencahayaan_pdf")
+    fun pencahayaan_pdf(
+        @Part image: MultipartBody.Part?,
+        @Part("tw") tw: RequestBody,
+        @Part("tahun") tahun: RequestBody,
+        @Part("jabatan") jabatan: RequestBody,
+        @Part("nama") nama: RequestBody,
+    ): Call<PostDataResponse>
+
+    @GET("getschedule_pelaksana_pencahayaan")
+    fun getschedule_pelaksana_pencahayaan(): Call<SchedulePencahayaanResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST("update_schedule_pencahayaan")
+    fun update_schedule_pencahayaan(@Body post: UpdateSchedulePencahayaan): Call<PostDataResponse>
+
+    //==========================END Schedule Pencahayaan =======================
 
 }
 

@@ -11,6 +11,7 @@ import com.sipmat.sipmat.R
 import com.sipmat.sipmat.admin.apat.ApatActivity
 import com.sipmat.sipmat.admin.hydrant.item.MenuHydrantActivity
 import com.sipmat.sipmat.admin.kebisingan.MenuKebisinganActivity
+import com.sipmat.sipmat.admin.pencahayaan.MenuPencahayaanActivity
 import com.sipmat.sipmat.databinding.FragmentPmBinding
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -41,6 +42,10 @@ class PMFragment : Fragment() {
 
         binding.txtkebisingan.setOnClickListener {
             startActivity<MenuKebisinganActivity>()
+        }
+
+        binding.txtpencahayaan.setOnClickListener {
+            startActivity<MenuPencahayaanActivity>()
         }
         //copy3
         return  binding.root

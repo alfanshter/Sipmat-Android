@@ -79,17 +79,40 @@
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/alfan/AndroidStudioProjects/Sipmat-Android/app/src/main/res/menu/bottom_nav_menu_pelaksana.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_cek_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_cek_kebisingan2.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_cek_kebisingan_admin.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_cek_pencahayaan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_cek_pencahayaan_admin.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_detail_cek_apat.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_detail_cek_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_detail_cek_pencahayaan.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_hasil_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_hasil_pencahayaan.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_home_admin.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/activity_item_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_item_pencahayaan.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_admin.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/activity_menu_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_menu_pencahayaan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_qr_code_cek_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_qr_code_cek_pencahayaan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_schedule_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_schedule_pencahayaan.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_tambah_kebisingan.xml" value="0.17330861909175163" />
+        <entry key="app/src/main/res/layout/activity_tambah_pencahayaan.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_tambah_schedule_kebisingan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_tambah_schedule_pencahayaan.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_arsip.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_pm.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/list_hasil_hydrant.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/list_item_pencahayaan.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/list_pencahayaan_pelaksana.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/list_schedulepencahayaan.xml" value="0.2578125" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1328125" />
       </map>
     </option>
